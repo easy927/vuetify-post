@@ -1,7 +1,7 @@
 <template>
   <v-row justify="center">
     <v-dialog v-model="dialog" persistent max-width="600px">
-      <template v-slot:activator="{ on, attrs }">
+<!--      <template v-slot:activator="{ on, attrs }">
         <v-btn
                 color="primary"
                 dark
@@ -11,7 +11,7 @@
           Open Dialog
 
         </v-btn>
-      </template>
+      </template>-->
       <v-card>
         <v-card-title>
           <span class="headline">User Profile</span>
@@ -70,7 +70,7 @@
 <script>
   export default {
     data: () => ({
-      dialog: false,
+      dialog: true,
     }),
   }
 </script>
