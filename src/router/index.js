@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import home from '../views/home.vue'
-
 Vue.use(VueRouter)
 
 const routes = [
@@ -10,15 +9,15 @@ const routes = [
     name: 'default',
     redirect: '/home',
     meta:{
-      title:'首页'
+      title:''
     }
   },
   {
-    path: '/',
+    path: '/home',
     name: 'home',
     component: home,
     meta:{
-      title:'首页'
+      title:''
     }
   },
   {
@@ -30,34 +29,20 @@ const routes = [
     component: () => import(/* webpackChunkName: "about" */ '../views/about.vue')
   },
   {
+    path: '/editor',
+    name : 'editor',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import(/* webpackChunkName: "about" */ '../views/editor.vue')
+  },
+  {
     path: "/post",
     name: "post",
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ "../views/post.vue")
-  },
-  {
-    path: "/login",
-    name: "login",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ "../views/login.vue"),
-    meta:{
-      title:'登陆'
-    }
-  },
-  {
-    path: "/register",
-    name: "register",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ "../views/register.vue"),
-    meta:{
-      title:'注册'
-    }
   },
   {
     path: "/personal",
@@ -70,7 +55,8 @@ const routes = [
 ]
 
 const router = new VueRouter({
-  routes
+  routes,
+  mode: 'history',
 })
 
 export default router
